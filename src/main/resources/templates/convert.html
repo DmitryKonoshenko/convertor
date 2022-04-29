@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+<div class="container">
+    <br/>
+    <div class="page-header">
+        <h1>Currency Conversion</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-11">
+            <form action="#" th:object="${converterModel}" method="post"
+                  id="conversionForm" role="form">
+
+                <div class="row">
+                    <div class="col-md-2">
+                    From
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="srcAmount" min="1.00" step="0.01"
+                                   name="money" placeholder="" th:field="*{money}"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <select class="selectpicker show-tick form-control"
+                                    id="currency" name="currency" th:field="*{currency}">
+                                <option th:value="USD">USD</option>
+                                <option th:value="EUR">EUR</option>
+                                <option th:value="JPY">JPY</option>
+                                <option th:value="GBP">GBP</option>
+                                <option th:value="INR">INR</option>
+                                <option th:value="BRL">BRL</option>
+                                <option th:value="TRY">TRY</option>
+                                <option th:value="RUB">RUB</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        To
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <select class="selectpicker show-tick form-control"
+                                        id="resultCurrency" name="resultCurrency" th:field="*{resultCurrency}">
+                                    <option th:value="USD">USD</option>
+                                    <option th:value="EUR">EUR</option>
+                                    <option th:value="JPY">JPY</option>
+                                    <option th:value="GBP">GBP</option>
+                                    <option th:value="INR">INR</option>
+                                    <option th:value="BRL">BRL</option>
+                                    <option th:value="TRY">TRY</option>
+                                    <option th:value="RUB">RUB</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="targetAmount" step="0.01"
+                                       name="result" placeholder="" th:field="*{result}"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-1 text-center">
+                        <button type="submit" id="convert" name="convert" class="btn btn-primary">
+                            Convert
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
